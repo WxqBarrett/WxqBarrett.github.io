@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wxqbarrett.github.io/</id>
     <title>汪晓强</title>
-    <updated>2019-10-08T18:40:14.096Z</updated>
+    <updated>2019-10-08T18:44:58.130Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wxqbarrett.github.io/"/>
     <link rel="self" href="https://wxqbarrett.github.io//atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://wxqbarrett.github.io//images/avatar.png</logo>
     <icon>https://wxqbarrett.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 汪晓强</rights>
+    <entry>
+        <title type="html"><![CDATA[我和我的祖国。]]></title>
+        <id>https://wxqbarrett.github.io//post/wo-he-wo-de-zu-guo</id>
+        <link href="https://wxqbarrett.github.io//post/wo-he-wo-de-zu-guo">
+        </link>
+        <updated>2019-10-08T18:41:16.000Z</updated>
+        <content type="html"><![CDATA[<p>🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳🇨🇳</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://wxqbarrett.github.io//post/hello-gridea</id>
