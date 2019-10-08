@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wxqbarrett.github.io/</id>
-    <title>Gridea</title>
-    <updated>2019-10-08T18:39:03.915Z</updated>
+    <title>汪晓强</title>
+    <updated>2019-10-08T18:40:14.096Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wxqbarrett.github.io/"/>
     <link rel="self" href="https://wxqbarrett.github.io//atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>个人博客</subtitle>
     <logo>https://wxqbarrett.github.io//images/avatar.png</logo>
     <icon>https://wxqbarrett.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, Gridea</rights>
+    <rights>All rights reserved 2019, 汪晓强</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://wxqbarrett.github.io//post/hello-gridea</id>
