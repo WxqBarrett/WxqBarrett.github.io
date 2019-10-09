@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wxqbarrett.github.io/</id>
     <title>Barrett</title>
-    <updated>2019-10-09T16:11:56.245Z</updated>
+    <updated>2019-10-09T16:23:26.858Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wxqbarrett.github.io/"/>
     <link rel="self" href="https://wxqbarrett.github.io//atom.xml"/>
@@ -24,30 +24,25 @@
 <p>2.重新启动项目。</p>
 <p>3.打开项目中的app.js。</p>
 <ul>
-<li>
-<p>引入路由（react-router-dom）。</p>
-</li>
-<li>
-<p><code>import { BrowserRouter, Route } from 'react-router-dom';</code></p>
+<li>引入路由（react-router-dom）。</li>
+</ul>
+<pre><code>import { BrowserRouter, Route } from 'react-router-dom';
+</code></pre>
 <blockquote>
 <p>BrowserRouter 代表的是一个路由。意思就是表示这个标签里面的内容将要使用路由。<br>
 Route 代表的是路由规则。</p>
 </blockquote>
-</li>
-<li>
-<p><code>&lt;Route path='/' exact render={() =&gt; &lt;div&gt;home&lt;/div&gt;}&gt;&lt;/Route&gt;</code></p>
+<pre><code>&lt;Route path='/' exact render={() =&gt; &lt;div&gt;home&lt;/div&gt;}&gt;&lt;/Route&gt;
+</code></pre>
 <blockquote>
 <p>上面的代码意思就是当访问根路径的时候页面显示出一个home。其中render函数作为它的一个属性表示它要渲染什么，我们渲染的是div标签，内容为home。而exact这个也就是字面上的意思<code>准确的</code>。作用就是只有路径完完全全相等的时候出现对应的页面内容。如果我们不加exact那么当我们访问<code>/detail</code>路径时页面上也会出现home内容，因为<code>/detail</code>也包括了<code>/</code>这个路径所以会显示出来。</p>
 </blockquote>
-</li>
-<li>
-<p><code>import Detail from '目录中的组件路径';</code><br>
-<code>&lt;Route path='/detail' exact component={Detail}&gt;&lt;/Route&gt;</code></p>
+<pre><code>import Detail from '目录中的组件路径';
+&lt;Route path='/detail' exact component={Detail}&gt;&lt;/Route&gt;
+</code></pre>
 <blockquote>
 <p>如果想要跳转目录中的组件，将组件引入到app.js中，然后把<code>render={()=&gt;&lt;div&gt;Detail&lt;/div&gt;}</code>更换成<code>component={Detail}</code>就可以了。</p>
 </blockquote>
-</li>
-</ul>
 <h4 id="实例代码">实例代码：</h4>
 <pre><code>&lt;BrowserRouter&gt;
     &lt;div&gt;
