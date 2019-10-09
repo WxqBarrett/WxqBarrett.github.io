@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wxqbarrett.github.io/</id>
     <title>Barrett</title>
-    <updated>2019-10-09T15:59:30.802Z</updated>
+    <updated>2019-10-09T16:07:30.309Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wxqbarrett.github.io/"/>
     <link rel="self" href="https://wxqbarrett.github.io//atom.xml"/>
@@ -56,7 +56,9 @@ Route 代表的是路由规则。</p>
     &lt;/div&gt;
 &lt;/BrowserRouter&gt;
 </code></pre>
-<pre><code>注意：BrowserRouter下面只能有一个child，所以要加div标签。</code></pre>
+<blockquote>
+<p>注意：BrowserRouter下面只能有一个child，所以要加div标签。</p>
+</blockquote>
 ]]></content>
     </entry>
     <entry>
