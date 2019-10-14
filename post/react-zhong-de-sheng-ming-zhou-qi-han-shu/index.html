@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wxqbarrett.github.io//favicon.ico?v=1571073317796">
+<link rel="shortcut icon" href="https://wxqbarrett.github.io//favicon.ico?v=1571073445828">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wxqbarrett.github.io//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://wxqbarrett.github.io/">
-        <img src="https://wxqbarrett.github.io//images/avatar.png?v=1571073317796" class="site-logo">
+        <img src="https://wxqbarrett.github.io//images/avatar.png?v=1571073445828" class="site-logo">
         <h1 class="site-title">Barrett</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -101,21 +101,21 @@
 <h3 id="2每个生命周期函数执行的状态">2.每个生命周期函数执行的状态。</h3>
 <blockquote>
 <p>页面挂载的时候执行。</p>
-<p>componentWillMount() ---&gt; 当组件即将被挂载到页面的时刻自动执行。<br>
-render()               ---&gt; 页面渲染。<br>
-componentDidMount()  ---&gt; 组件被挂载到页面之后自动执行。</p>
+<p><code>componentWillMount()</code> ---&gt; 当组件即将被挂载到页面的时刻自动执行。<br>
+<code>render()</code>               ---&gt; 页面渲染。<br>
+<code>componentDidMount()</code>  ---&gt; 组件被挂载到页面之后自动执行。</p>
 </blockquote>
 <blockquote>
 <p>组件更新的时候执行</p>
-<p>shouldComponentUpdate() ---&gt; 组件更新之前自动执行。返回true和false。<br>
-componentWillUpdate()   ---&gt; 组件更新之前自动执行，但在shouldComponentUpdate之后执行。<br>
-render()                ---&gt; 重新渲染页面。<br>
-componentDidUpdate()    ---&gt; 组件更新之后自动执行。<br>
-componentWillReceiveProps() ---&gt; 一个组件要从父组件接受参数。如果这个组件第一次存在父组件中，不会执行。如果这个组件之前已经存在父组件中才会执行。</p>
+<p><code>shouldComponentUpdate()</code> ---&gt; 组件更新之前自动执行。返回true和false。<br>
+<code>componentWillUpdate()</code>   ---&gt; 组件更新之前自动执行，但在shouldComponentUpdate之后执行。<br>
+<code>render()</code>               ---&gt; 重新渲染页面。<br>
+<code>componentDidUpdate()</code>    ---&gt; 组件更新之后自动执行。<br>
+<code>componentWillReceiveProps()</code> ---&gt; 一个组件要从父组件接受参数。如果这个组件第一次存在父组件中，不会执行。如果这个组件之前已经存在父组件中才会执行。</p>
 </blockquote>
 <blockquote>
 <p>组件被从页面剔除时候执行<br>
-componentWillUnmount() ---&gt; 当这个组件即将从页面剔除的时候自动执行。</p>
+<code>componentWillUnmount()</code> ---&gt; 当这个组件即将从页面剔除的时候自动执行。</p>
 </blockquote>
 
             </div>
