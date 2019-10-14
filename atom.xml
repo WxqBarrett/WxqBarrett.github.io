@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wxqbarrett.github.io/</id>
     <title>Barrett</title>
-    <updated>2019-10-09T16:23:26.858Z</updated>
+    <updated>2019-10-14T17:15:20.889Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wxqbarrett.github.io/"/>
     <link rel="self" href="https://wxqbarrett.github.io//atom.xml"/>
@@ -11,50 +11,18 @@
     <icon>https://wxqbarrett.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, Barrett</rights>
     <entry>
+        <title type="html"><![CDATA[React 中的生命周期函数]]></title>
+        <id>https://wxqbarrett.github.io//post/react-zhong-de-sheng-ming-zhou-qi-han-shu</id>
+        <link href="https://wxqbarrett.github.io//post/react-zhong-de-sheng-ming-zhou-qi-han-shu">
+        </link>
+        <updated>2019-10-14T16:22:39.000Z</updated>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[React的路由使用。]]></title>
         <id>https://wxqbarrett.github.io//post/react-de-lu-you</id>
         <link href="https://wxqbarrett.github.io//post/react-de-lu-you">
         </link>
         <updated>2019-10-09T14:12:26.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="什么是路由">什么是路由？</h3>
-<p>根据URL的不同显示不同的内容。</p>
-<h3 id="如何在react中使用路由">如何在React中使用路由？</h3>
-<p>1.首先在终端中先安装路由。<br>
-<code>yarn add react-router-dom</code> 或者 <code>npm install react-router-dom</code>都可以。</p>
-<p>2.重新启动项目。</p>
-<p>3.打开项目中的app.js。</p>
-<ul>
-<li>引入路由（react-router-dom）。</li>
-</ul>
-<pre><code>import { BrowserRouter, Route } from 'react-router-dom';
-</code></pre>
-<blockquote>
-<p>BrowserRouter 代表的是一个路由。意思就是表示这个标签里面的内容将要使用路由。<br>
-Route 代表的是路由规则。</p>
-</blockquote>
-<pre><code>&lt;Route path='/' exact render={() =&gt; &lt;div&gt;home&lt;/div&gt;}&gt;&lt;/Route&gt;
-</code></pre>
-<blockquote>
-<p>上面的代码意思就是当访问根路径的时候页面显示出一个home。其中render函数作为它的一个属性表示它要渲染什么，我们渲染的是div标签，内容为home。而exact这个也就是字面上的意思<code>准确的</code>。作用就是只有路径完完全全相等的时候出现对应的页面内容。如果我们不加exact那么当我们访问<code>/detail</code>路径时页面上也会出现home内容，因为<code>/detail</code>也包括了<code>/</code>这个路径所以会显示出来。</p>
-</blockquote>
-<pre><code>import Detail from '目录中的组件路径';
-&lt;Route path='/detail' exact component={Detail}&gt;&lt;/Route&gt;
-</code></pre>
-<blockquote>
-<p>如果想要跳转目录中的组件，将组件引入到app.js中，然后把<code>render={()=&gt;&lt;div&gt;Detail&lt;/div&gt;}</code>更换成<code>component={Detail}</code>就可以了。</p>
-</blockquote>
-<h4 id="实例代码">实例代码：</h4>
-<pre><code>&lt;BrowserRouter&gt;
-    &lt;div&gt;
-        &lt;Route path='/' exact render={() =&gt; &lt;div&gt;home&lt;/div&gt;}&gt;&lt;/Route&gt;
-        &lt;Route path='/detail' exact component={Detail}&gt;&lt;/Route&gt;
-    &lt;/div&gt;
-&lt;/BrowserRouter&gt;
-</code></pre>
-<blockquote>
-<p>注意：BrowserRouter下面只能有一个child，所以要加div标签。</p>
-</blockquote>
-]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[记一些JavaScript中常见的问题。]]></title>
@@ -62,13 +30,5 @@ Route 代表的是路由规则。</p>
         <link href="https://wxqbarrett.github.io//post/common">
         </link>
         <updated>2019-10-08T18:41:16.000Z</updated>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://wxqbarrett.github.io//post-images/1570610811788.jpg" alt=""></figure>
-<h3 id="1什么是构造函数">1.什么是构造函数？</h3>
-<p>任何函数都能成为构造函数。只要用new去操作它，它就是构造函数。不用new操作它就是一个函数。总之构造函数也是函数。</p>
-<h3 id="2什么是原型对象">2.什么是原型对象？</h3>
-<p>在声明一个函数时JavaScript自己会在函数上增加一个属性，这个属性就是函数的prototype，这个属性会初始化一个空对象，也就是我们说的原型对象。</p>
-<h3 id="3什么是原型链">3.什么是原型链？</h3>
-<p>原型链就是通过一个实例对象往上找构造这个实例的相关联的对象，然后这个相关联的对象再往上找，它又有创造它的上一级的原型对象，以此类推一直到Object.prototype原型对象终止。</p>
-]]></content>
     </entry>
 </feed>

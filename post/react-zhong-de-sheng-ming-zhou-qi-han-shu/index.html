@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>记一些JavaScript中常见的问题。 | Barrett</title>
+<title>React 中的生命周期函数 | Barrett</title>
 <meta name="description" content="个人博客">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -92,28 +92,43 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">记一些JavaScript中常见的问题。</h2>
-            <div class="post-date">2019-10-09</div>
+            <h2 class="post-title">React 中的生命周期函数</h2>
+            <div class="post-date">2019-10-15</div>
             
             <div class="post-content">
-              <figure data-type="image" tabindex="1"><img src="https://wxqbarrett.github.io//post-images/1570610811788.jpg" alt=""></figure>
-<h3 id="1什么是构造函数">1.什么是构造函数？</h3>
-<p>任何函数都能成为构造函数。只要用new去操作它，它就是构造函数。不用new操作它就是一个函数。总之构造函数也是函数。</p>
-<h3 id="2什么是原型对象">2.什么是原型对象？</h3>
-<p>在声明一个函数时JavaScript自己会在函数上增加一个属性，这个属性就是函数的prototype，这个属性会初始化一个空对象，也就是我们说的原型对象。</p>
-<h3 id="3什么是原型链">3.什么是原型链？</h3>
-<p>原型链就是通过一个实例对象往上找构造这个实例的相关联的对象，然后这个相关联的对象再往上找，它又有创造它的上一级的原型对象，以此类推一直到Object.prototype原型对象终止。</p>
+              <h3 id="1什么是生命周期函数">1.什么是生命周期函数？</h3>
+<p>生命周期函数指在某一个时刻组件会自动执行的函数。</p>
+<h3 id="2每个生命周期函数执行的状态">2.每个生命周期函数执行的状态。</h3>
+<blockquote>
+<p>页面挂载的时候执行。</p>
+<p>componentWillMount() ---&gt; 当组件即将被挂载到页面的时刻自动执行。<br>
+render()               ---&gt; 页面渲染。<br>
+componentDidMount()  ---&gt; 组件被挂载到页面之后自动执行。</p>
+</blockquote>
+<blockquote>
+<p>组件更新的时候执行</p>
+<p>shouldComponentUpdate() ---&gt; 组件更新之前自动执行。返回true和false。<br>
+componentWillUpdate()   ---&gt; 组件更新之前自动执行，但在shouldComponentUpdate之后执行。<br>
+render()                ---&gt; 重新渲染页面。<br>
+componentDidUpdate()    ---&gt; 组件更新之后自动执行。<br>
+componentWillReceiveProps() ---&gt; 一个组件要从父组件接受参数。如果这个组件第一次存在父组件中，不会执行。如果这个组件之前已经存在父组件中才会执行。</p>
+</blockquote>
+<blockquote>
+<p>组件被从页面剔除时候执行<br>
+componentWillUnmount() ---&gt; 当这个组件即将从页面剔除的时候自动执行。</p>
+</blockquote>
 
             </div>
             
-              <div class="tag-container">
-                
-                  <a href="https://wxqbarrett.github.io//tag/5GdNEN1pu" class="tag">
-                    JavaScript
-                  </a>
-                
-              </div>
             
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wxqbarrett.github.io//post/react-de-lu-you">
+                  <h3 class="post-title">
+                    React的路由使用。
+                  </h3>
+                </a>
+              </div>
             
 
             
