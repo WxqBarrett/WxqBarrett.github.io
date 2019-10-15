@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Redux使用 | Barrett</title>
+<meta name="description" content="个人博客">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wxqbarrett.github.io//favicon.ico?v=1571155503572">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://wxqbarrett.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wxqbarrett.github.io/">
+        <img src="https://wxqbarrett.github.io//images/avatar.png?v=1571155503572" class="site-logo">
+        <h1 class="site-title">Barrett</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      个人博客
+    </div>
+    <div class="site-footer">
+      <a href="JavaScript:;">Barrett</a> | <a class="rss" href="https://wxqbarrett.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Redux使用</h2>
+            <div class="post-date">2019-10-15</div>
+            
+            <div class="post-content">
+              <h3 id="一-redux的概念简介">一、Redux的概念简介。</h3>
+<p>如果我们没有数据层框架，只有React时候，我们组件之间的传值会非常的麻烦。而Redux会把组件中的数据放到一个公用的存储区域存储<code>(store)</code>，然后组件改变数据就不需要传递了，我们只需要改变<code>store</code>中的数据就好了，之后其它的组件就会感知到<code>store</code>发生变化会自动改变对应的数据。这样不管组件的层级有多深它们走的流程都是一样的。</p>
+<h3 id="二-redux的工作流程">二、Redux的工作流程。</h3>
+<figure data-type="image" tabindex="1"><img src="https://wxqbarrett.github.io//post-images/1571125460640.png" alt=""></figure>
+<blockquote>
+<p>上图就是Redux的工作流程图例。</p>
+</blockquote>
+<p>Redux实际上就是一个数据层的框架，它把所有的数据都放到了<code>store</code>中。然后每个组件都要从<code>store</code>中拿数据，然后每个组件都会去改<code>store</code>的数据。显然图上蓝色区域的<code>React Component</code>就是组件。</p>
+<h4 id="我们用一个例子理解redux的工作流程">我们用一个例子理解Redux的工作流程.</h4>
+<blockquote>
+<p>首先我有个组件<code>(React Component)</code>，这个组件要获取<code>store</code>中的数据。然后我们要跟<code>store</code>说我要获取一些数据啊。我们说的这句话就是<code>Action Creators</code>。<code>Action Creators</code>创建一句话之后告诉了<code>store</code>,<code>store</code>接收到了我们组件要一些数据，其实它并不知我们要什么数据，它得查一下我们要什么数据。而<code>Reducers</code>知道我们需要什么数据，所以<code>Reducers</code>会告诉<code>store</code>应该给组件什么数据。然后<code>store</code>知道之后会把对应的数据给到组件<code>(React Component)</code>。<br>
+修改数据也是同理。</p>
+</blockquote>
+<h4 id="这就是redux的工作流程">这就是Redux的工作流程。</h4>
+<h3 id="三-store的创建与使用">三、Store的创建与使用。</h3>
+<ul>
+<li>
+<p>1.我们首先先安装Redux。<br>
+<code>yarn add redux</code></p>
+</li>
+<li>
+<p>2.创建一个Store。<br>
+我们在项目src目录下创建 &lt; store &gt; 文件夹,然后在&lt; store &gt;目录中创建 &lt; index.js &gt;文件,这个文件就是创建Store代码存放的位置。</p>
+<h4 id="在indexjs文件中写以下代码">在index.js文件中写以下代码。</h4>
+<pre><code>// 我们从redux模块中引入一个方法。我们调用这个方法就可以创建一个store出来。
+import { createStore } from 'redux'; 
+
+// 定义store。这样我们就创建除了一个数据的公共存储仓库。
+const store = createStore(); 
+
+// 导出仓库 
+export default store；
+</code></pre>
+<p>以上代码就是我们创建好了<code>store</code>。但是我们举的例子说它并不知我们要什么数据，所以它需要<code>Reducers</code>来告诉它我们需要什么数据。</p>
+</li>
+<li>
+<p>3.创建Reducers。<br>
+我们在store目录下创建一个 &lt; reducer.js &gt;文件。</p>
+<h3 id="在reducerjs文件中写以下代码">在reducer.js文件中写以下代码。</h3>
+<pre><code>// 我们可以定一个默认数据。
+const defaultState = {
+  a: 1,
+  b: 2
+}
+
+export default (state = defaultState, action) =&gt; {
+  return state;
+}
+</code></pre>
+<p><code>在Redux之中reducer需要返回一个函数。这个函数会接收两个内容，分别是state和action。这个state就是我们store中存储的数据, state = defaultState就是让state有默认数据。而action就是我们通过action传给store的新数据。下面有介绍。</code></p>
+<h4 id="接下来我们在-indexjs-使用我们创建的reducer">接下来我们在 &lt; index.js &gt; 使用我们创建的reducer。</h4>
+<pre><code>import { createStore } from 'redux';
+// 先引入我们创建的reducer.
+import reducer from './reducer'
+// 然后把reducer作为第一个参数传给store，这样store就知道我们存储的数据都有什么了。
+const store = createStore(reducer); 
+export default store；
+</code></pre>
+</li>
+<li>
+<p>4.组件使用store中的数据。</p>
+<pre><code>// 首先先引入我们的仓库。
+improt store from './store/index.js';
+
+class 组件 extends Component {
+    // 我们可以在constructor中使用store给我们提供的getState这个方法获取数据。
+    constructor(props) {
+        super(props);
+        this.state = store.getState()
+        console.log(this.state);
+        // 这个时候控制台输出的结果就是 { a:1, b:2 }，证明我们就已经获取到了。
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>5.组件修改store中的数据。</p>
+<blockquote>
+<p>从图中我们知道想要修改store中的参数时，我们首先需要创建一个<code>action</code>。在React中action是一个对象的形式。里面需要一个type去告诉redux这个action要做什么。然后把要修改的值传递过去。</p>
+</blockquote>
+<p>例如：</p>
+<pre><code>const action = {
+    type: 'change_a_value',
+    a: '123'
+}
+</code></pre>
+<p>这段代码的意思就是，帮我修改a的值,现在的值应该是123。</p>
+<blockquote>
+<p>看图，我们现在组件已经创建了一个action，那我们需要把这个action传给store。这时候store提供了一个方法是<code>dispatch()</code>我们调用store.dispatch()就可以把这个action传给store。</p>
+</blockquote>
+<pre><code>const action = {
+    type: 'change_a_value',
+    a: '123'
+};
+store.dispatch(action);
+</code></pre>
+<blockquote>
+<p>现在我们调用dispatch把action传递给了store了，可是现在store不知道该怎么处理。所以store会自动把现有的数据和action一起传递给reducer。然后通过reducer修改store的值返回给store。</p>
+</blockquote>
+<pre><code>export default (state = defaultState, action) =&gt; {
+    if (action.type === 'change_a_value') {
+      // 这里这个拷贝是因为，reducer 可以接收state的值，但是不能修改state。
+      const newState = JSON.parse(JSON.stringify(state))
+      newState.a = action.a
+      return newState;
+    }
+  return state;
+}
+</code></pre>
+<h3 id="总结">总结:</h3>
+<blockquote>
+<p>React首先要改变store里面的数据，先要派发一个action。action会通过dispatch方法传给store。store会把之前的数据和action转发给reducer。reducer是一个函数，它接收到了state和action后会做一些处理返回一个新的state给会store。 store会用这个新的state替换掉之前的state。然后state发生改变之后react组件会感知到store发生改变，这个时候它会重新从store中取数据，更新组件的内容。</p>
+</blockquote>
+</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wxqbarrett.github.io//post/react-zhong-de-sheng-ming-zhou-qi-han-shu">
+                  <h3 class="post-title">
+                    React 中的生命周期函数
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
