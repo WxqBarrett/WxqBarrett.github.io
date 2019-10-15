@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wxqbarrett.github.io/</id>
     <title>Barrett</title>
-    <updated>2019-10-14T17:17:28.813Z</updated>
+    <updated>2019-10-15T16:04:45.664Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wxqbarrett.github.io/"/>
     <link rel="self" href="https://wxqbarrett.github.io//atom.xml"/>
@@ -18,14 +18,14 @@
         <updated>2019-10-14T16:22:39.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[React的路由使用。]]></title>
+        <title type="html"><![CDATA[React的路由使用]]></title>
         <id>https://wxqbarrett.github.io//post/react-de-lu-you</id>
         <link href="https://wxqbarrett.github.io//post/react-de-lu-you">
         </link>
         <updated>2019-10-09T14:12:26.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[记一些JavaScript中常见的问题。]]></title>
+        <title type="html"><![CDATA[记一些JavaScript中常见的问题]]></title>
         <id>https://wxqbarrett.github.io//post/common</id>
         <link href="https://wxqbarrett.github.io//post/common">
         </link>
