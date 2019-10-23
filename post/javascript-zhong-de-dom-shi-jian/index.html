@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>JavaScript中的DOM事件。 | Barrett</title>
+<meta name="description" content="个人博客">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wxqbarrett.github.io//favicon.ico?v=1571842530975">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://wxqbarrett.github.io//styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wxqbarrett.github.io/">
+        <img src="https://wxqbarrett.github.io//images/avatar.png?v=1571842530975" class="site-logo">
+        <h1 class="site-title">Barrett</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      个人博客
+    </div>
+    <div class="site-footer">
+      <a href="JavaScript:;">Barrett</a> | <a class="rss" href="https://wxqbarrett.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">JavaScript中的DOM事件。</h2>
+            <div class="post-date">2019-10-23</div>
+            
+            <div class="post-content">
+              <h3 id="虽然dom事件是js中非常重要的部分但是也有很多人不是特别的了解-然而掌握这些内容难度也不是很大-只是很多人没有系统化的学习这块内容-今天我来系统的梳理一下这些知识">虽然DOM事件是Js中非常重要的部分，但是也有很多人不是特别的了解。然而掌握这些内容难度也不是很大。只是很多人没有系统化的学习这块内容。今天我来系统的梳理一下这些知识。</h3>
+<ul>
+<li>DOM事件的级别。</li>
+<li>DOM事件模型。</li>
+<li>DOM事件流。</li>
+<li>描述DOM事件捕获的具体流程。</li>
+<li>Event对象的常见应用。</li>
+<li>自定义事件。</li>
+</ul>
+<blockquote>
+<p>以上就是我们今天要梳理的内容。</p>
+</blockquote>
+<h2 id="1-dom事件的级别">1、DOM事件的级别。</h2>
+<blockquote>
+<p>说起DOM级别，标准的说就是<code>DOM标准定义的级别</code>。<br>
+1.第一代就是DOM0，不管官方怎么说大家认定就是DOM0。DOM0其中与事件相关的标准就是<code>在某个元素上写一个onclick=function(){}</code>这是在Js中的写法，如果在HTML中写法就是onclick属性上加一个Js语句。这种写法的标准制定来源与DOM0时代。</p>
+<p>2.DOM2事件增加了就是我们下面代码块写的<code>addEventListener('click', 响应函数，制定冒泡还是捕获) [true是捕获、false是冒泡]</code>。DOM2在IE上不是addEventListener而是<code>attachEvent</code>这是IE的特性。其实现在面试当中很少特指出IE怎么用，只要说出来<code>attachEvent</code>就可以了。</p>
+<p>3.DOM3其实还是这种事件定义的方法，只不过事件类型增加了很多<code>比如说'鼠标事件','键盘事件'...</code></p>
+</blockquote>
+<pre><code>    DOM0 ---&gt; element.onclick = function() {}
+
+    DOM2 ---&gt; element.addEventListener('click', function(){}, false)
+
+    DOM3 ---&gt; element.addEventListener('keyup', function(){}, false)
+</code></pre>
+<blockquote>
+<p>注：DOM1标准制定的时候没有与事件相关的东西，所以DOM事件级别直接跳过了DOM1 。不代表DOM1标准不存在。这些东西大家做到了解就好，面试当中一问一答能说出来就可以了。</p>
+</blockquote>
+<h2 id="2-dom事件模型">2、DOM事件模型。</h2>
+<h3 id="事件模型这块就是事件捕获和冒泡">事件模型这块就是事件捕获和冒泡。</h3>
+<blockquote>
+<p>事件捕获就是从<code>Window往下到目标元素</code>，事件冒泡相反<code>从目标元素往上到Window</code>。就是这两个过程。</p>
+</blockquote>
+<h2 id="3-dom事件流">3、DOM事件流。</h2>
+<blockquote>
+<p>事件流说白了就是浏览器在为这个当前页面与用户做交互的过程中当我点击了鼠标左键，这个左键是怎么传到页面上的，它是怎么响应的。<br>
+<code>一个事件流分为三个阶段，第一个阶段就是捕获，第二个阶段就是目标阶段，第三个阶段就是冒泡。</code></p>
+</blockquote>
+<h2 id="4-描述dom事件捕获的具体流程">4、描述DOM事件捕获的具体流程。</h2>
+<blockquote>
+<p><code>window ---&gt; document ---&gt; html ---&gt; body ---&gt; ...(就是普通的Html结构一层一层的往下传) ---&gt; 目标元素</code>。 这就是事件捕获的具体流程。 相反就是事件冒泡的流程。</p>
+</blockquote>
+<h2 id="5-event对象的常见应用">5、Event对象的常见应用。</h2>
+<h3 id="event是事件响应中非常重要的一个对象-因为我们要拿很多用户交互的一个参数-以下是我们常用的而且容易弄混的几项">event是事件响应中非常重要的一个对象。因为我们要拿很多用户交互的一个参数。以下是我们常用的而且容易弄混的几项。</h3>
+<blockquote>
+<p>event.preventDefault() 这个就是阻止默认事件。比如一个a标签给它绑定一个点击事件，在响应函数中设置了preventDefault那么就阻止了a标签默认跳转的一个行为。<br>
+event.stopPropagation() 这个就是阻止冒泡的行为。<br>
+event.stopImmediatePropagation() 它的功能就是比如我们一个按钮绑定了两个点击事件，当我们点击按钮时候会同时触发两个事件，当我们在第一个点击事件里面用这个方法就可以阻止第二个触发。<br>
+event.currentTarget() 指的是当前所绑定的事件。<br>
+event.target() 表示的就是当前被点击的元素。</p>
+</blockquote>
+<pre><code>    event.preventDefault()
+
+    event.stopPropagation()
+
+    event.stopImmediatePropagation()
+
+    event.currentTarget()
+
+    event.target()
+</code></pre>
+<h2 id="6-自定义事件">6、自定义事件。</h2>
+<blockquote>
+<p>自定义事件用法的场景比如说现在有个按钮，这个按钮不是常规的click事件，给它自己增加一个事件在别的地方触发这个事件，而不是用回调的方式处理。这个时候就可以用自定义事件了。<code>它的用法非常简单就是用new Event()声明一个自定义事件。然后可以把这个eve就当作一个click事件，而这个事件是我们组件定义的。然后这个ev就是一个DOM节点通过DOM2这种事件注册的方式绑定这个事件名称。最后用dispatch触发这个eve这个对象。这样就可以达到一个自定义事件和自定义触发事件这么一个过程。</code></p>
+</blockquote>
+<pre><code>    var eve = new Event('custome');
+
+    ev.addEventListener('custome', function() {
+        console.log('custome');
+    });
+    
+    ev.dispatchEvent(eve);
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wxqbarrett.github.io//post/redux">
+                  <h3 class="post-title">
+                    Redux使用
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
