@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wxqbarrett.github.io//favicon.ico?v=1571842530975">
+<link rel="shortcut icon" href="https://wxqbarrett.github.io//favicon.ico?v=1573137639283">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wxqbarrett.github.io//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://wxqbarrett.github.io/">
-        <img src="https://wxqbarrett.github.io//images/avatar.png?v=1571842530975" class="site-logo">
+        <img src="https://wxqbarrett.github.io//images/avatar.png?v=1573137639283" class="site-logo">
         <h1 class="site-title">Barrett</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -161,7 +161,7 @@ event.target() 表示的就是当前被点击的元素。</p>
 <blockquote>
 <p>自定义事件用法的场景比如说现在有个按钮，这个按钮不是常规的click事件，给它自己增加一个事件在别的地方触发这个事件，而不是用回调的方式处理。这个时候就可以用自定义事件了。<code>它的用法非常简单就是用new Event()声明一个自定义事件。然后可以把这个eve就当作一个click事件，而这个事件是我们组件定义的。然后这个ev就是一个DOM节点通过DOM2这种事件注册的方式绑定这个事件名称。最后用dispatch触发这个eve这个对象。这样就可以达到一个自定义事件和自定义触发事件这么一个过程。</code></p>
 </blockquote>
-<pre><code>    var eve = new Event('custome');
+<pre><code>    var ev = new Event('custome');
 
     ev.addEventListener('custome', function() {
         console.log('custome');
